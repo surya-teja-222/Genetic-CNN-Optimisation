@@ -10,3 +10,4 @@ The dataset used for this project is the [COVID-19 Radiography Database](https:/
 -   `chromosome.py` - Creates a list of chromosomes for the genetic algorithm natural selection
 -   `fitness.py` - Calculates the fitness of model made from each chromosome
 -   `test_train_data.py` - provides the test and train data for model training
+-   `gen_sub_model.py` - Creates a new sub model on basis of the chromosome

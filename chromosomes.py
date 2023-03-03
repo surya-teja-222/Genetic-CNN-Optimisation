@@ -3,6 +3,9 @@ import json
 import tensorflow as tf
 from tensorflow import keras
 
+from tensorflow.keras.layers import *
+from tensorflow.keras.models import *
+
 # generate 100 chromosomes
 def gen_chromosomes(model, count):
     chromosomes = []
