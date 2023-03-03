@@ -7,3 +7,6 @@ The dataset used for this project is the [COVID-19 Radiography Database](https:/
 ## Files
 
 -   `baseModel.py` - The base neural network model used for initial training
+-   `chromosome.py` - Creates a list of chromosomes for the genetic algorithm natural selection
+-   `fitness.py` - Calculates the fitness of model made from each chromosome
+-   `test_train_data.py` - provides the test and train data for model training
