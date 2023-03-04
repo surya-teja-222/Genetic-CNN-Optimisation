@@ -1,0 +1,88 @@
+INFO: STDOUT/STDERR redirected to file
+INFO: IMPORTING DATA
+INFO: BASE MODEL
+INFO: ORIGINAL ACCURACY  0.9820393919944763
+INFO: CREATING CHROMOSOMES
+INFO: BREEDING CHROMOSOMES
+Breeding for 1th time
+Newly added 0.9626303315162659 and 0.9716106653213501
+Breeding for 2th time
+Newly added 0.9698725342750549 and 0.9690034985542297
+Breeding for 3th time
+Newly added 0.9684240818023682 and 0.9443800449371338
+Breeding for 4th time
+Newly added 0.9585747122764587 and 0.9632097482681274
+Breeding for 5th time
+Newly added 0.9716106653213501 and 0.9649478793144226
+Breeding for 6th time
+Newly added 0.9623406529426575 and 0.9681344032287598
+Breeding for 7th time
+Newly added 0.9704518914222717 and 0.9710313081741333
+Breeding for 8th time
+Newly added 0.9646581411361694 and 0.964368462562561
+Breeding for 9th time
+Newly added 0.9698725342750549 and 0.9704518914222717
+Breeding for 10th time
+Newly added 0.9698725342750549 and 0.9719003438949585
+Breeding for 11th time
+Newly added 0.9698725342750549 and 0.967555046081543
+Breeding for 12th time
+Newly added 0.967555046081543 and 0.9672653675079346
+Breeding for 13th time
+Newly added 0.9759559631347656 and 0.9423522353172302
+Breeding for 14th time
+Newly added 0.9698725342750549 and 0.9710313081741333
+Breeding for 15th time
+Newly added 0.9600231647491455 and 0.965237557888031
+Breeding for 16th time
+Newly added 0.9690034985542297 and 0.976245641708374
+Breeding for 17th time
+Newly added 0.9733487963676453 and 0.9695828557014465
+Breeding for 18th time
+Newly added 0.9684240818023682 and 0.9542294144630432
+Breeding for 19th time
+Newly added 0.9698725342750549 and 0.9692931771278381
+Breeding for 20th time
+Newly added 0.967555046081543 and 0.9661065936088562
+Breeding for 21th time
+Newly added 0.9713209867477417 and 0.9747971892356873
+Breeding for 22th time
+Newly added 0.9716106653213501 and 0.9663962721824646
+Breeding for 23th time
+Newly added 0.9606025218963623 and 0.9571263194084167
+Breeding for 24th time
+Newly added 0.9522016048431396 and 0.9632097482681274
+Breeding for 25th time
+Newly added 0.9710313081741333 and 0.9756662845611572
+Breeding for 26th time
+Newly added 0.976245641708374 and 0.9687137603759766
+Breeding for 27th time
+Newly added 0.9539397358894348 and 0.9695828557014465
+Breeding for 28th time
+Newly added 0.9632097482681274 and 0.962920069694519
+Breeding for 29th time
+Newly added 0.9692931771278381 and 0.9617612957954407
+Breeding for 30th time
+Newly added 0.9603128433227539 and 0.9727693796157837
+Breeding for 31th time
+Newly added 0.9655272364616394 and 0.9692931771278381
+Breeding for 32th time
+Newly added 0.9698725342750549 and 0.9724797010421753
+Breeding for 33th time
+Newly added 0.9574159979820251 and 0.966685950756073
+Breeding for 34th time
+Newly added 0.9713209867477417 and 0.9661065936088562
+Breeding for 35th time
+Newly added 0.9739281535148621 and 0.9550985097885132
+Breeding for 36th time
+Newly added 0.9721900224685669 and 0.9736384749412537
+Breeding for 37th time
+Newly added 0.9681344032287598 and 0.9753766059875488
+Breeding for 38th time
+Newly added 0.9716106653213501 and 0.9713209867477417
+Breeding for 39th time
+Newly added 0.9704518914222717 and 0.9634994268417358
+Breeding for 40th time
+Newly added 0.9721900224685669 and 0.9727693796157837
+INFO: BREEDING CHROMOSOMES
+Mutating for 1 th time

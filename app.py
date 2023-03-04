@@ -1,31 +1,32 @@
 import sys
 
 try:
-    sys.stdout = open('logs/results/ap.log', 'w')
+    sys.stdout = open('logs/results/app.log', 'w')
     sys.stderr = open('logs/results/error/app-err.log', 'w')
+    print("INFO: STDOUT/STDERR redirected to file")
 except:
     print("ERROR: Unable to open file for STDOUT/STDERR")
 
 import numpy as np
 import random
 import json
-import tesorflow as tf
+import tensorflow as tf
 from tensorflow import keras
+
 
 from tensorflow.keras.layers import *
 from tensorflow.keras.models import *
 
 import fitness
-import test_train_data
+print("INFO: IMPORTING DATA")
 
-x_train, y_train, x_test, y_test = test_train_data.getTestTrainData()
 import generate_sub_model as gsm
 
 print("INFO: BASE MODEL")
 model = keras.models.load_model('models/base_model.h5')
 
 
-print("INFO: ORIGINAL ACCURACY " , fitness.getFitness(model,x_train, y_train, x_test, y_test, epochs=10))
+print("INFO: ORIGINAL ACCURACY " , fitness.getFitness(model, epochs=10))
 
 print("INFO: CREATING CHROMOSOMES")
 import chromosomes as ch
@@ -36,7 +37,7 @@ print("INFO: BREEDING CHROMOSOMES")
 def breed(chromosomes):
     new_chromosomes = []
     new_fitness = []
-    for i in range(50):
+    for i in range(40):
         print("Breeding for {}th time".format(i+1))
         # randomly select 2 chromosomes
         c1 = random.choice(chromosomes)
@@ -51,19 +52,19 @@ def breed(chromosomes):
         model2 = gsm.genSubModel(c2, model)
         model3 = gsm.genSubModel(new_chromosome_1, model)
         model4 = gsm.genSubModel(new_chromosome_2, model)
-        fitness1 = fitness.getFitness(model1, x_train, y_train, x_test, y_test)
+        fitness1 = fitness.getFitness(model1)
         if(fitness1 < 0.8):
             print("Breaking because of less acuracy")
             continue
-        fitness2 = fitness.getFitness(model2, x_train, y_train, x_test, y_test)
+        fitness2 = fitness.getFitness(model2)
         if(fitness2 < 0.8):
             print("Breaking because of less acuracy")
             continue
-        fitness3 = fitness.getFitness(model3, x_train, y_train, x_test, y_test)
+        fitness3 = fitness.getFitness(model3)
         if(fitness3 < 0.8):
             print("Breaking because of less acuracy")
             continue
-        fitness4 = fitness.getFitness(model4, x_train, y_train, x_test, y_test)
+        fitness4 = fitness.getFitness(model4)
         if(fitness4 < 0.8):
             print("Breaking because of less acuracy")
             continue
@@ -75,6 +76,7 @@ def breed(chromosomes):
         new_chromosomes.append(best_chromosomes[1])
         new_fitness.append(fitnesses[0])
         new_fitness.append(fitnesses[1])
+        print("Newly added {} and {}".format(fitnesses[0], fitnesses[1]))
 
     return new_chromosomes, new_fitness
 
@@ -89,6 +91,9 @@ newly_bred_chromosomes_dict = {k: v for k, v in sorted(newly_bred_chromosomes_di
 
 with open('chromosomes/newly_bred.json', 'w') as f:
     json.dump(newly_bred_chromosomes_dict, f)
+
+
+
 
 def mutate(chromosomes):
     new_chromosomes = []
@@ -119,7 +124,7 @@ def mutate(chromosomes):
         print("Newly aded {}".format(best_fitnesses[0]))
     return new_chromosomes, new_chromosomes_acc
 
-print("INFO: BREEDING CHROMOSOMES")
+print("INFO: MUTATING CHROMOSOMES")
 new_chromosomes_mutated, new_chromosomes_acc_mutated = mutate(new_chromosomes)
 
 new_chromosomes_mutated = {i: [new_chromosomes_mutated[i], new_chromosomes_acc_mutated[i]] for i in range(len(new_chromosomes_mutated))}
