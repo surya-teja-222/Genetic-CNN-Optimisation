@@ -35,7 +35,7 @@ def mutate(chromosomes):
     for i, chromosome in enumerate(chromosomes):
         print("Mutating for {} th time".format(i+1))
         # randomly select a mutation point
-        mutation_point = random.randint(0, 27)
+        mutation_point = random.randint(0, len(chromosome))
         # mutate the chromosome
         chromosome[mutation_point] = 1 - chromosome[mutation_point]
         # calculate the fitness of old and new chromosomes

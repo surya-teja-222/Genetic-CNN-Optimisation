@@ -43,7 +43,7 @@ def breed(chromosomes):
         c1 = random.choice(chromosomes)
         c2 = random.choice(chromosomes)
         # randomly select a crossover point
-        crossover_point = random.randint(0, 27)
+        crossover_point = random.randint(0, len(c1))
         # create a new chromosome by combining the 2 chromosomes
         new_chromosome_1 = c1[:crossover_point] + c2[crossover_point:]
         new_chromosome_2 = c2[:crossover_point] + c1[crossover_point:]
@@ -101,7 +101,7 @@ def mutate(chromosomes):
     for i, chromosome in enumerate(chromosomes):
         print("Mutating for {} th time".format(i+1))
         # randomly select a mutation point
-        mutation_point = random.randint(0, 27)
+        mutation_point = random.randint(0, len(chromosome))
         # mutate the chromosome
         chromosome[mutation_point] = 1 - chromosome[mutation_point]
         # calculate the fitness of old and new chromosomes
