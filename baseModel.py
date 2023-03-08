@@ -10,6 +10,13 @@ import pandas as pd
 
 import tensorflow as tf
 
+# DETAILS OF THE GPU
+print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+print("Num CPUs Available: ", len(tf.config.experimental.list_physical_devices('CPU')))
+print("Num TPU Available: ", len(tf.config.experimental.list_physical_devices('TPU')))
+print("Num Physical Devices Available: ", len(tf.config.experimental.list_physical_devices()))
+
+
 from tensorflow import keras
 
 # import layers
@@ -63,11 +70,13 @@ x_train, x_test, y_train, y_test = train_test_split(data, targets, test_size=0.2
 
 model = Sequential([
 
-    Conv2D(32, 3, input_shape=(100,100,3), activation='relu'),
+    Conv2D(64, 3,padding='same', input_shape=(100,100,3), activation='relu'),
     MaxPooling2D(),
-    Conv2D(16, 3, activation='relu'),
+    Conv2D(32, 3,padding='same', activation='relu'),
     MaxPooling2D(),
-    Conv2D(16, 3, activation='relu'),
+    Conv2D(64, 3,padding='same', activation='relu'),
+    MaxPooling2D(),
+    Conv2D(32, 3,padding='same', activation='relu'),
     MaxPooling2D(),
     Flatten(),
     Dense(128, activation='relu'),
@@ -76,7 +85,7 @@ model = Sequential([
 
 model.summary()
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy', 'Precision'])
 
 # model.fit(x_train, y_train,batch_size=32,epochs=10,validation_data=(x_test, y_test))
 model.fit(x_train, y_train,epochs=15,validation_data=(x_test, y_test))
@@ -84,5 +93,5 @@ model.fit(x_train, y_train,epochs=15,validation_data=(x_test, y_test))
 model.save('models/base_model.h5')
 
 # evaluate the model
-train_loss, train_acc = model.evaluate(x_train, y_train, verbose=0)
-print('Loss: %.3f, Accuracy: %.3f' % (train_loss, train_acc))
+print(model.evaluate(x_train, y_train, verbose=0))
+print(model.evaluate(x_test,y_test, verbose=0))

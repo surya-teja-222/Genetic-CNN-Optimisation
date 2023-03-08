@@ -15,16 +15,15 @@ w3 = 0.2
 def getFitness(model, epochs=2 , verbose=0):
     model.compile(optimizer='adam',
                   loss='binary_crossentropy',
-                  metrics=['accuracy'])
+                  metrics=['accuracy', 'Precision'])
     model.fit(x_train, y_train, epochs=epochs, verbose=verbose,validation_data=(x_test, y_test))
     
-    # accuracy ,precesion and recall
+    # find the accuracy, precision and recall
     y_pred = model.predict(x_test)
     y_pred = (y_pred > 0.5)
     test_acc = accuracy_score(y_test, y_pred)
     test_prec = precision_score(y_test, y_pred)
     test_recall = recall_score(y_test, y_pred)
-    
 
     return w1*test_acc + w2*test_prec + w3*test_recall
 
