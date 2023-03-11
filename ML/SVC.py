@@ -68,27 +68,27 @@ from sklearn.metrics import accuracy_score
 y_pred = model.predict(x_test)
 print("Accuracy: ", accuracy_score(y_test, y_pred))
 
-# +
-# find accuracy, precision, recall, f1 score, jaccard index, kappa score, confusion matrix, ROC curve, AUC score, etc.
+from sklearn.metrics import log_loss
+print("Log loss: ", log_loss(y_test, y_pred))
 
 # precision
 from sklearn.metrics import precision_score
-precision = precision_score(y_test, y_pred, average='macro')
+precision = precision_score(y_test, y_pred, average='micro')
 print('Precision: %f' % precision)
 
 # recall
 from sklearn.metrics import recall_score
-recall = recall_score(y_test, y_pred, average='macro')
+recall = recall_score(y_test, y_pred, average='micro')
 print('Recall: %f' % recall)
 
 # f1 score
 from sklearn.metrics import f1_score
-f1 = f1_score(y_test, y_pred, average='macro')
+f1 = f1_score(y_test, y_pred, average='micro')
 print('F1 score: %f' % f1)
 
 # jaccard index
 from sklearn.metrics import jaccard_score
-jaccard = jaccard_score(y_test, y_pred, average='macro')
+jaccard = jaccard_score(y_test, y_pred, average='micro')
 print('Jaccard score: %f' % jaccard)
 
 # kappa score
