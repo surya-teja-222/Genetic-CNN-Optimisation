@@ -92,37 +92,37 @@ with open('chromosomes/newly_bred.json', 'w') as f:
 
 
 
-# def mutate(chromosomes, new_fitness):
-#     new_chromosomes = []
-#     new_chromosomes_acc = []
-#     for i, chromosome in enumerate(chromosomes):
-#         print("Mutating for {} th time".format(i+1))
-#         # randomly select a mutation point
-#         mutation_point = random.randint(0, len(chromosome))
-#         # mutate the chromosome
-#         chromosome[mutation_point] = 1 - chromosome[mutation_point]
-#         # calculate the fitness of old and new chromosomes
-#         model2 = gsm.genSubModel(chromosome, model)
-#         fitness1 = new_fitness[i]
-#         fitness2 = fitness.getFitness(model2, epochs=2)
-#         if(fitness2 < 0.7):
-#             print("Breaking because of less fitness")
-#             continue
-#         # select the best chromosome
-#         fitnesses = [fitness1, fitness2]
-#         best_chromosomes = [chromosomes[i], chromosome ]
-#         best_chromosomes , best_fitnesses = zip(*sorted(zip(best_chromosomes, fitnesses), reverse=True))
-#         new_chromosomes.append(best_chromosomes[0])
-#         new_chromosomes_acc.append(best_fitnesses[0])
-#         print("Newly aded {}".format(best_fitnesses[0]))
-#     return new_chromosomes, new_chromosomes_acc
+def mutate(chromosomes, new_fitness):
+    new_chromosomes = []
+    new_chromosomes_acc = []
+    for i, chromosome in enumerate(chromosomes):
+        print("Mutating for {} th time".format(i+1))
+        # randomly select a mutation point
+        mutation_point = random.randint(0, len(chromosome))
+        # mutate the chromosome
+        chromosome[mutation_point] = 1 - chromosome[mutation_point]
+        # calculate the fitness of old and new chromosomes
+        model2 = gsm.genSubModel(chromosome, model)
+        fitness1 = new_fitness[i]
+        fitness2 = fitness.getFitness(model2, epochs=2)
+        if(fitness2 < 0.7):
+            print("Breaking because of less fitness")
+            continue
+        # select the best chromosome
+        fitnesses = [fitness1, fitness2]
+        best_chromosomes = [chromosomes[i], chromosome ]
+        best_chromosomes , best_fitnesses = zip(*sorted(zip(best_chromosomes, fitnesses), reverse=True))
+        new_chromosomes.append(best_chromosomes[0])
+        new_chromosomes_acc.append(best_fitnesses[0])
+        print("Newly aded {}".format(best_fitnesses[0]))
+    return new_chromosomes, new_chromosomes_acc
 
-# print("INFO: MUTATING CHROMOSOMES")
-# new_chromosomes_mutated, new_chromosomes_acc_mutated = mutate(new_chromosomes, new_fitness)
+print("INFO: MUTATING CHROMOSOMES")
+new_chromosomes_mutated, new_chromosomes_acc_mutated = mutate(new_chromosomes, new_fitness)
 
-# new_chromosomes_mutated = {i: [new_chromosomes_mutated[i], new_chromosomes_acc_mutated[i]] for i in range(len(new_chromosomes_mutated))}
+new_chromosomes_mutated = {i: [new_chromosomes_mutated[i], new_chromosomes_acc_mutated[i]] for i in range(len(new_chromosomes_mutated))}
 
-# with open('chromosomes/new_cromosomes_mutated.json', 'w') as f:
-#     json.dump(new_chromosomes_mutated, f)
+with open('chromosomes/new_cromosomes_mutated.json', 'w') as f:
+    json.dump(new_chromosomes_mutated, f)
 
-# print("Obtained Accuracy {} obtained on chromosome {}".format(max(new_chromosomes_acc_mutated) , new_chromosomes_mutated[new_chromosomes_acc_mutated.index(max(new_chromosomes_acc_mutated))]))
+print("Obtained Accuracy {} obtained on chromosome {}".format(max(new_chromosomes_acc_mutated) , new_chromosomes_mutated[new_chromosomes_acc_mutated.index(max(new_chromosomes_acc_mutated))]))
