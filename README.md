@@ -13,3 +13,14 @@ The dataset used for this project is the [COVID-19 Radiography Database](https:/
 -   `gen_sub_model.py` - Creates a new sub model on basis of the chromosome
 -   `app.py` - to generate initial set of chromosomes, and breed them to create new set of chromosomes
 -   `mutation.py` - to mutate the chromosomes
+
+# SETUP/ Local WorkFlow
+
+-  Add the dataset to `data/COVID-19_Radiography_Dataset`, look at `baseModel.py` for desired configuration.
+- It will contain 2 folders `COVID` & `Normal`
+- run baseModel.py to generate a baseModel.
+
+- after this use `chromosomes.py` to generate chromosomes.
+- Run app.py to breed chromosomes and mutate.
+- You will get the best model after mutation.
+- Check logs from `logs` folder for more insights.
